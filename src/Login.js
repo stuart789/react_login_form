@@ -48,7 +48,7 @@ const Login = () => {
             
         } catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg('Login Failed');
             } else if (err.response?.status === 400) {
                 setErrMsg('Missing Username or Password');
             } else if (err.response?.status === 401) {
@@ -64,7 +64,7 @@ const Login = () => {
         <>
             {success ? (
                 <section>
-                    <h1>You are logged in!</h1>
+                    <h1>Success!</h1>
                     <br />
                     <p>
                         <a href="#">Go to Home</a>
