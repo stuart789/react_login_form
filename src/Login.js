@@ -26,21 +26,26 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
-            const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
-            setPwd('');
-            setSuccess(true);
+            // const response = await axios.post(LOGIN_URL,
+            //     JSON.stringify({ user, pwd }),
+            //     {
+            //         headers: { 'Content-Type': 'application/json' },
+            //         withCredentials: true
+            //     }
+            // );
+            // console.log(JSON.stringify(response?.data));
+            // //console.log(JSON.stringify(response));
+            // const accessToken = response?.data?.accessToken;
+            // const roles = response?.data?.roles;
+            // setAuth({ user, pwd, roles, accessToken });
+            if ( user == '1234' && pwd == '1234') {
+                setUser('');
+                setPwd('');
+                setSuccess(true);
+            } else {
+                throw new Error();
+            }
+            
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
